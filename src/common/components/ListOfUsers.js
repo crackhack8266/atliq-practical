@@ -28,8 +28,7 @@ const ListOfUsers = ({
         </View>
       )}
       ListFooterComponent={() =>
-        hasNextPage &&
-        (isLoading || isFetchingNextPage) && (
+        hasNextPage && !isFetchingNextPage ? (
           <View style={GlobalStyles.flex}>
             <Text
               style={ListOfUsersStyles.viewMoreTextStyle}
@@ -37,6 +36,10 @@ const ListOfUsers = ({
             >
               View More
             </Text>
+          </View>
+        ) : (
+          <View style={{ flex: 1, alignItems: 'center' }}>
+            <ActivityIndicator size="large" color={Colors.activeTabColor} />
           </View>
         )
       }

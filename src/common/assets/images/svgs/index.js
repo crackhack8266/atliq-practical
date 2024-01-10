@@ -16,3 +16,4 @@ export { default as LocationIcon } from './LocationIcon.svg';
 export { default as ProfileIcon } from './ProfileIcon.svg';
 export { default as ProfileDesign } from './ProfileDesign.svg';
 export { default as BackIcon } from './BackIcon.svg';
+export { default as SplashScreen } from './SplashScreen.svg';
