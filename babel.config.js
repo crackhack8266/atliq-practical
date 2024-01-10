@@ -18,6 +18,7 @@ module.exports = {
           '#/utils': './src/utils',
           '#/navigators': './src/navigators',
           '#/hooks': './src/hooks',
+          '#/redux': './src/redux',
           '#/': './src/',
         },
         extensions: ['.js', '.jsx', '.json', '.svg', '.jpg', '.png'],

@@ -2,3 +2,17 @@ export { default as FavoriteNotSelectedIcon } from './FavoriteNotSelectedIcon.sv
 export { default as HomeNotSelectedIcon } from './HomeNotSelectedIcon.svg';
 export { default as FavoriteSelectedIcon } from './FavoriteSelectedIcon.svg';
 export { default as HomeSelectedIcon } from './HomeSelectedIcon.svg';
+export { default as DemoUser } from './DemoUser.svg';
+export { default as SearchIcon } from './SearchIcon.svg';
+export { default as FilterIcon } from './FilterIcon.svg';
+export { default as MaleGenderIcon } from './MaleGenderIcon.svg';
+export { default as FemaleGenderIcon } from './FemaleGenderIcon.svg';
+export { default as FavoriteIcon } from './FavoriteIcon.svg';
+export { default as NotFavoriteIcon } from './NotFavoriteIcon.svg';
+export { default as BirthdayIcon } from './BirthdayIcon.svg';
+export { default as MailIcon } from './MailIcon.svg';
+export { default as MobileIcon } from './MobileIcon.svg';
+export { default as LocationIcon } from './LocationIcon.svg';
+export { default as ProfileIcon } from './ProfileIcon.svg';
+export { default as ProfileDesign } from './ProfileDesign.svg';
+export { default as BackIcon } from './BackIcon.svg';

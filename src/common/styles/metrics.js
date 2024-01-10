@@ -27,26 +27,27 @@ const Metrics = {
   ScaleValue: (val) => scale(val),
   VerticalScaleValue: (val) => verticalScale(val),
   // INFO: Below all the fonts will change based on the fonts selection
-  normalTwentyFour: {
+  semiboldTwentyFour: {
     fontSize: scale(24),
-    fontFamily: fonts.fontTypes.InterRegular,
+    fontFamily: fonts.fontTypes.OpenSansSemiBold,
+  },
+  semiboldSixteen: {
+    fontSize: scale(16),
+    fontFamily: fonts.fontTypes.OpenSansSemiBold,
   },
   normalTwelve: {
-    fontSize: scale(12),
-    fontFamily: fonts.fontTypes.InterRegular,
-  },
-  boldFourteen: {
-    fontFamily: fonts.fontTypes.InterBold,
-    fontSize: scale(14),
-  },
-  twelveMedium: {
-    fontFamily: fonts.fontTypes.InterMedium,
+    fontFamily: fonts.fontTypes.OpenSansRegular,
     fontSize: scale(12),
   },
-  sixteenMedium: {
-    fontFamily: fonts.fontTypes.InterMedium,
-    fontSize: scale(16),
+  mediumEighteen: {
+    fontFamily: fonts.fontTypes.OpenSansRegular,
+    fontSize: scale(18),
   },
+  semiboldTwentyTwo: {
+    fontFamily: fonts.fontTypes.OpenSansSemiBold,
+    fontSize: scale(22),
+  },
+
   eighteenMedium: {
     fontFamily: fonts.fontTypes.InterMedium,
     fontSize: scale(18),

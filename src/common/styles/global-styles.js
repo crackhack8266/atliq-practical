@@ -23,12 +23,12 @@ const GlobalStyles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: Colors.appBackground,
+    backgroundColor: Colors.white,
     paddingHorizontal: Metrics.ScaleValue(16),
   },
   containerWithoutPadding: {
     flex: 1,
-    backgroundColor: Colors.appBackground,
+    backgroundColor: Colors.white,
   },
   justifySpaceBetweenInRow: {
     flexDirection: 'row',
