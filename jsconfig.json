@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+          "#/components/*": ["./src/common/components/*"],
+          "#/screens/*": ["./src/screens/*"],
+          "#/svgs/*": ["./src/common/assets/images/svgs/*"],
+          "#/images/*": ["./src/common/assets/images/pngs/*"],
+          "#/constant": ["./src/common/constant"],
+          "#/config/*":["./src/common/config/*"],
+          "#/wrappers":["./src/common/wrappers"],
+          "#/styles":["./src/common/styles"],
+          "#/context":["./src/context"],
+          "#/utils":["./src/utils"],
+          "#/navigators/*":["./src/navigators/*"],
+           "#/hooks":["./src/hooks"],
+           "#/*": ["./src/*"],
+       }
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
