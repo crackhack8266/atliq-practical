@@ -1,5 +1,4 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 import useGetRandomPeopleData from '#/hooks/useGetRandomPeopleData';
 import HomeView from './HomeView';
 
@@ -14,7 +13,7 @@ const HomeContainer = () => {
     page: 1,
     results: 20,
   });
-  console.log({ homeDetails });
+
   return (
     <HomeView
       homeDetails={
@@ -25,6 +24,8 @@ const HomeContainer = () => {
       }
       fetchNextPage={fetchNextPage}
       hasNextPage={hasNextPage}
+      isLoading={isLoading}
+      isFetchingNextPage={isFetchingNextPage}
     />
   );
 };

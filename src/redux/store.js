@@ -8,6 +8,7 @@ const reducers = persistCombineReducers(
   {
     key: 'root',
     storage: AsyncStorage,
+    blacklist: ['favorite'],
   },
   rootReducer
 );

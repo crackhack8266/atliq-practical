@@ -2,19 +2,14 @@
 
 import axios from 'axios';
 
-const encryptedLockerAxiosClient = axios.create({
+const axiosClient = axios.create({
   baseURL: 'https://randomuser.me/',
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-const requestInterceptor = (config) =>
-  // if (userToken && userToken !== 'undefined') {
-  //   config.headers.Authorization = userToken;
-  // }
+const requestInterceptor = (config) => config;
+axiosClient.interceptors.request.use(requestInterceptor);
 
-  config;
-encryptedLockerAxiosClient.interceptors.request.use(requestInterceptor);
-
-export default encryptedLockerAxiosClient;
+export default axiosClient;

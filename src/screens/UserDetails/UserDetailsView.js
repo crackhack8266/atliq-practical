@@ -1,92 +1,112 @@
-import { Colors, GlobalStyles, Metrics } from '#/styles';
+import { GlobalStyles, Metrics } from '#/styles';
 import {
   BackIcon,
+  BirthdayIcon,
+  FemaleGenderIcon,
+  LocationIcon,
+  MailIcon,
   MaleGenderIcon,
+  MobileIcon,
   ProfileDesign,
-  ProfileIcon,
 } from '#/svgs/index';
 import { useNavigation } from '@react-navigation/native';
+import moment from 'moment';
 import React from 'react';
-import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
+import UserDetailsStyles from './styles';
 
 const UserDetailsView = ({ userDetails }) => {
   const navigation = useNavigation();
+
   return (
     <SafeAreaView style={GlobalStyles.containerWithoutPadding}>
-      <View
-        style={{
-          marginHorizontal: Metrics.ScaleValue(18),
-          marginTop: Metrics.ScaleValue(12),
-        }}
-      >
+      <View style={UserDetailsStyles.parentView}>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           activeOpacity={0.7}
         >
           <BackIcon />
         </TouchableOpacity>
-        <View
-          style={{
-            marginTop: Metrics.ScaleValue(31),
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}
-        >
-          <View style={{ width: Metrics.ScaleValue(130) }}>
-            <ProfileIcon />
-            <View
-              style={{
-                padding: Metrics.ScaleValue(12),
-                backgroundColor: Colors.white,
-                position: 'absolute',
-                bottom: Metrics.ScaleValue(4),
-                left: Metrics.ScaleValue(89),
-                borderRadius: Metrics.ScaleValue(25),
-                shadowColor: Colors.shadowColor,
-                shadowOffset: {
-                  width: Metrics.ScaleValue(-2),
-                  height: Metrics.ScaleValue(2),
-                },
-                shadowOpacity: Metrics.ScaleValue(0.3),
-                shadowRadius: Metrics.ScaleValue(20),
-              }}
-            >
-              <MaleGenderIcon />
+        <View style={UserDetailsStyles.profileImageAndNameView}>
+          <View style={UserDetailsStyles.profileImageWidth}>
+            <Image
+              source={{ uri: userDetails.picture.large }}
+              width={Metrics.ScaleValue(112)}
+              height={Metrics.ScaleValue(112)}
+              resizeMode="contain"
+              style={UserDetailsStyles.profileImageBorder}
+            />
+            <View style={UserDetailsStyles.genderIconView}>
+              {userDetails.gender === 'male' ? (
+                <MaleGenderIcon />
+              ) : (
+                <FemaleGenderIcon />
+              )}
             </View>
           </View>
-          <View style={{ marginLeft: Metrics.ScaleValue(20) }}>
-            <Text
-              style={{
-                ...Metrics.mediumEighteen,
-                color: '#B5B5B5',
-                lineHeight: Metrics.ScaleValue(20),
-                letterSpacing: Metrics.ScaleValue(-0.36),
-              }}
-            >
+          <View style={UserDetailsStyles.profileNameTitleView}>
+            <Text style={UserDetailsStyles.profileNameTitleTextStyle}>
               Hi, My name is
             </Text>
-            <Text
-              style={{
-                ...Metrics.semiboldTwentyTwo,
-                color: '#696464',
-                letterSpacing: Metrics.ScaleValue(-0.44),
-                flexWrap: 'wrap',
-                width: 200,
-                marginRight: Metrics.ScaleValue(20),
-              }}
-            >
-              {userDetails.name}
+            <Text style={UserDetailsStyles.profileNameValueTextStyle}>
+              {`${userDetails.name.first} ${userDetails.name.last || ''}`}
+            </Text>
+          </View>
+        </View>
+        <View>
+          <View
+            style={[
+              GlobalStyles.centerRowAlign,
+              { marginTop: Metrics.ScaleValue(52) },
+            ]}
+          >
+            <MailIcon />
+            <Text style={UserDetailsStyles.userDetailsTextStyle}>
+              {userDetails.email}
+            </Text>
+          </View>
+          <View
+            style={[
+              GlobalStyles.centerRowAlign,
+              { marginTop: Metrics.ScaleValue(12) },
+            ]}
+          >
+            <MobileIcon />
+            <Text style={UserDetailsStyles.userDetailsTextStyle}>
+              {userDetails.cell}
+            </Text>
+          </View>
+          <View
+            style={[
+              GlobalStyles.centerRowAlign,
+              { marginTop: Metrics.ScaleValue(12) },
+            ]}
+          >
+            <BirthdayIcon />
+            <Text style={UserDetailsStyles.userDetailsTextStyle}>
+              {moment(userDetails.dob.date).format('DD MMM YYYY')}
+            </Text>
+          </View>
+          <View
+            style={[
+              GlobalStyles.centerRowAlign,
+              { marginTop: Metrics.ScaleValue(12) },
+            ]}
+          >
+            <LocationIcon />
+            <Text style={UserDetailsStyles.userDetailsTextStyle}>
+              {userDetails?.location?.street?.name || 'Not added'}
             </Text>
           </View>
         </View>
       </View>
-      <View
-        style={{
-          alignSelf: 'flex-end',
-          position: 'absolute',
-          bottom: Metrics.ScaleValue(0),
-        }}
-      >
+      <View style={UserDetailsStyles.profileDesignView}>
         <ProfileDesign />
       </View>
     </SafeAreaView>
