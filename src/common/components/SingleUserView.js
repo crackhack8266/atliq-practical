@@ -1,5 +1,10 @@
 import { Metrics } from '#/styles';
-import { FavoriteIcon, FemaleGenderIcon, MaleGenderIcon } from '#/svgs/index';
+import {
+  FavoriteIcon,
+  FemaleGenderIcon,
+  MaleGenderIcon,
+  NotFavoriteIcon,
+} from '#/svgs/index';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
@@ -53,7 +58,7 @@ const SingleUserView = ({ userDetails }) => {
         style={SingleUserViewStyles.favoriteIconView}
         activeOpacity={0.7}
       >
-        <FavoriteIcon />
+        {!userDetails.isNotFav ? <FavoriteIcon /> : <NotFavoriteIcon />}
       </TouchableOpacity>
     </View>
   );

@@ -9,7 +9,7 @@ const FavoriteView = ({ favoritesList }) => (
   <SafeAreaView style={GlobalStyles.containerWithoutPadding}>
     <Header />
     <Search />
-    <ListOfUsers homeDetails={favoritesList.favorite} />
+    <ListOfUsers homeDetails={favoritesList.favorite} route="fav" />
   </SafeAreaView>
 );
 export default FavoriteView;

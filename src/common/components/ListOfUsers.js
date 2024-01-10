@@ -1,3 +1,5 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable no-unused-expressions */
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import { ActivityIndicator, FlatList, Text, View } from 'react-native';
@@ -11,6 +13,7 @@ const ListOfUsers = ({
   hasNextPage = false,
   isLoading = false,
   isFetchingNextPage = false,
+  route = 'home',
 }) =>
   isLoading ? (
     <View style={ListOfUsersStyles.loadingView}>
@@ -27,7 +30,7 @@ const ListOfUsers = ({
           </Text>
         </View>
       )}
-      ListFooterComponent={() =>
+      ListFooterComponent={() => {
         hasNextPage && !isFetchingNextPage ? (
           <View style={GlobalStyles.flex}>
             <Text
@@ -37,12 +40,14 @@ const ListOfUsers = ({
               View More
             </Text>
           </View>
-        ) : (
+        ) : route === 'home' ? (
           <View style={{ flex: 1, alignItems: 'center' }}>
             <ActivityIndicator size="large" color={Colors.activeTabColor} />
           </View>
-        )
-      }
+        ) : (
+          <View />
+        );
+      }}
       keyExtractor={(item, index) => `${item.id}-${index}`}
       renderItem={({ item: userDetails }) => (
         <SingleUserView userDetails={userDetails} />
